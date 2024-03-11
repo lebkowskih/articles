@@ -11,14 +11,16 @@ class AuthorRepository
     {
         return Author::all();
     }
+
     public function getTopThreeFromLastWeek()
     {
         $lastWeek = Carbon::now()->subWeek();
         return Author::withCount('articles')
             ->whereHas('articles', function ($query) use ($lastWeek) {
-                $query->where('created_at', '>=', $lastWeek);
+                $query->where('articles.created_at', '>=', $lastWeek);
             })
             ->orderBy('articles_count', 'desc')
-            ->limit(3);
+            ->limit(3)
+            ->get();
     }
 }

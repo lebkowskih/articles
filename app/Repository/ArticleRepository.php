@@ -10,8 +10,9 @@ class ArticleRepository
 {
     public function getAll()
     {
-        return Article::all();
+        return Article::with('authors')->get();
     }
+
     public function getById(int $id)
     {
         return Article::findOrFail($id);
@@ -22,6 +23,13 @@ class ArticleRepository
         $article = Article::create($data);
         $article->authors()->attach($data['authors']);
     }
+
+    public function update(Article $article, array $data)
+    {
+        $article->update($data);
+        $article->authors()->sync($data['authors']);
+    }
+
     public function getByAuthor(int $authorId): Collection
     {
         $author = Author::findOrFail($authorId);

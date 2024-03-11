@@ -12,13 +12,32 @@
                 </button>
             </a>
         </div>
+
         @foreach ($articles as $article)
-            <div>
-                {{ $article->title }}
-                {{ $article->text }}
-                @foreach ($article->authors as $author)
-                    {{ $author->name }}
-                @endforeach
+            <div class="border-2 my-4 flex-col">
+                <div class="mb-8">
+                    <h1 class="text-3xl text-center">
+                        {{ $article->title }}
+                    </h1>
+                    {{ $article->text }}
+                </div>
+
+                <div>
+                    <h1>
+                        Authors:
+                    </h1>
+                    <ul>
+                        @foreach ($article->authors as $author)
+                            <li>{{ $author->name }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+
+                <a href="{{ route('articles.edit', $article) }}">
+                    <button class="bg-yellow-300 mb-0.5 text-white rounded-md ml-auto" style="padding: 5px">
+                        Edit article
+                    </button>
+            </a>
             </div>
         @endforeach
     </div>
