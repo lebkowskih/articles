@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Models\Article;
 use App\Models\Author;
 use Carbon\Carbon;
 

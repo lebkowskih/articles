@@ -35,7 +35,7 @@
 
                 <div>
                     <label for="authors[]" class="block mb-2 text-md font-medium">Authors</label>
-                    <select multiple name="authors[]" class="authors-selector">
+                    <select multiple name="authors[]" class="authors-selector w-64">
                         @foreach ($authors as $author)
                             <option value="{{ $author->id }}">{{ $author->name }}</option>
                         @endforeach
