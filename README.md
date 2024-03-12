@@ -3,6 +3,7 @@
     <li>Windows with WSL2 or any Linux distro</li>
     <li>Docker</li>
     <li>Composer installed globally</li>
+    <li>Configured SSH key</li>
 </ul>
 
 <h1>Getting Started</h1>
@@ -10,7 +11,7 @@
 <li>Clone the repository</li>
 
 ``
-git clone https://github.com/lebkowskih/articles-api.git
+git clone git@github.com:lebkowskih/articles.git
 ``
 
 <li>Navigate to the project directory</li>
