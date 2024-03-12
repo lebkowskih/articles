@@ -17,7 +17,7 @@ git clone git@github.com:lebkowskih/articles.git
 <li>Navigate to the project directory</li>
 
 ``
-cd articles-api
+cd articles
 ``
 
 <li>Install dependencies</li>
@@ -35,7 +35,7 @@ cp .env.example .env
 <li>Set database variables in .env</li>
 
 ``
-DB_DATABASE=articles_api
+DB_DATABASE=articles
 DB_USERNAME=sail
 DB_PASSWORD=password
 ``
@@ -54,7 +54,13 @@ php artisan key:generate
 <li>Migrate all database and seed all data</li>
 
 ``
-php artisan migrate:fresh --seed
+./vendor/bin/sail php artisan migrate:fresh --seed
+``
+
+<li>Install and start Vite</li>
+
+``
+./vendor/bin/sail npm install && ./vendor/bin/sail npm run dev
 ``
 
 <li>Access application at <a>http://localhost</a></li>
